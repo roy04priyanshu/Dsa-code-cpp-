@@ -1,34 +1,49 @@
 //program to implement selection sort
 #include <iostream>
+#include "sort2.h"
 using namespace std;
 
-void selectionsort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
+void selectionsort(int arr[], int n) 
+{
+    for(int i = 0; i < n - 1; i++)
+    {
         int min_idx = i;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[min_idx]) {
+        for(int j = i + 1; j < n; j++)
+        {
+            if(arr[j] < arr[min_idx]){
                 min_idx = j;
             }
         }
-        // Swap arr[i] and arr[min_idx]
+        // Swap after finding the minimum
         int temp = arr[i];
         arr[i] = arr[min_idx];
         arr[min_idx] = temp;
     }
 }
-void askuser(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
+
+void NewFunction(int min_idx, int arr[], int i)
+{
+    int temp = min_idx;
+    arr[i] = temp;
+    arr[i + 1] = min_idx;
+}
+void askuser(int arr[], int n) 
+{
+    for (int i = 0; i < n; i++) 
+    {
         cin >> arr[i];
     }
     cout << "Original array: ";
-    for (int j = 0; j < n; j++) {
+    for (int j = 0; j < n; j++) 
+    {
         cout << arr[j] << " ";
     }
     cout << endl;
 }
 void printarray(int arr[], int n) {
     cout << "Sorted array is: ";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+     {
         cout << arr[i] << " ";
     }
     cout << endl;
