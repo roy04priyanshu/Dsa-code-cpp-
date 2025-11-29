@@ -1,26 +1,28 @@
-//program to implement selection sort
+//Program to create bubble sort
 #include <iostream>
-
 using namespace std;
 
-void selectionsort(int arr[], int n) 
+void bubblesort(int arr[],int n)
 {
-    for(int i = 0; i < n - 1; i++)
+    for(int i=0 ; i<n ; i++)
     {
-        int min_idx = i;
-        for(int j = i + 1; j < n; j++)
+        for(int i=0 ; i<n-1 ; i++)
         {
-            if(arr[j] < arr[min_idx]){
-                min_idx = j;
+            int j=i+1;
+            for(j=0;j<n-i-1;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                     int temp=arr[j];
+                     arr[j]=arr[j+1];
+                     arr[j+1]=temp;
+                   
+                }
             }
+           
         }
-      
-        int temp = arr[i];
-        arr[i] = arr[min_idx];
-        arr[min_idx] = temp;
     }
 }
-
 
 void askuser(int arr[], int n) 
 {
@@ -50,7 +52,7 @@ int main()
     cin >> n;
     int a[n];
     askuser(a,n);
-    selectionsort(a,n);
+    bubblesort(a,n);
     printarray(a,n);
     return 0;
 }
