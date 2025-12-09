@@ -1,39 +1,36 @@
-//program for implementing mergesort
+// programto impliment mergesort
 #include <iostream>
 using namespace std;
 
-void merge(int arr[],int st , int mid , int end)
-{
-     int temp[end-st+1];
-     int i=st;
-     int j=mid+1;
-     int k=0;
-     while(i<=mid && j<=end){
+void merge(int arr[],int st,int mid,int end){
+    int temp[end-st+1];
+    int i=st;
+    int j=mid+1;
+    int k=0;
+    while(i<=mid && j<=end){
         if(arr[i]<=arr[j]){
             temp[k++]=arr[i++];
         }
         else{
-           temp[k++]=arr[j++];
-     }
-    }
-    while(i<=mid){
-        temp[k++]=arr[i++];
-    }
-    while(j<=end){
-        temp[k++]=arr[j++];
-    }
-    for(int x = 0; x < k; x++) {
-        arr[st + x] = temp[x];
+            temp[k++]=arr[j++];
+        }
+        while(i<=mid){
+            temp[k++]=arr[i++];
+        }
+        while(j<=end){
+            temp[k++]=arr[j++];
+        }
+        for(int l=0;l<k;l++){
+            arr[st+l]=temp[l];
+        }
     }
 }
-void mergesort(int arr[],int st , int end)
-{
-     if(st>=end) return;
-     int mid=(st+end)/2;
-     mergesort(arr,st,mid);
-     mergesort(arr,mid+1,end);
-     merge(arr,st,mid,end);    
-
+void mergesort(int arr[],int st,int end){
+    if(st>=end) return;
+    int mid=(st+end)/2;
+    mergesort(arr, st,  mid);
+    mergesort(arr, mid+1,end);
+    merge(arr,st, mid,end);
 }
 void askuser(int arr[], int n) 
 {
